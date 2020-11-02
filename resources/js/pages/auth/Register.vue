@@ -77,6 +77,7 @@
                 if (!this.errors.length){
                     const data = {
                         username : this.username,
+                        email : this.email,
                         password : this.password,
                     }
                     this.app.req.post('auth/register', data).then(response => {

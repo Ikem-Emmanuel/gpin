@@ -1,6 +1,7 @@
 import Home from './pages/Home'
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Dashboard from "./pages/Dashboard";
 export default [
     {
         path: '/',
@@ -16,5 +17,10 @@ export default [
         path: '/register',
         component: Register,
         name: 'register'
+    },
+    {
+        path: '/dashboard',
+        component: Dashboard,
+        name: 'dashboard'
     }
 ]

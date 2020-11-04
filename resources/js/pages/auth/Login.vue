@@ -37,6 +37,7 @@
             return {
                 username: '',
                 password: '',
+                loading:false,
                 errors:[]
             }
         },
@@ -54,9 +55,11 @@
                         username : this.username,
                         password : this.password,
                     }
+                    this.loading = true;
                     this.app.req.post('auth/login', data).then(response => {
                         this.app.user = response.data;
                         this.$router.push("/dashboard");
+                        this.loading = false;
                     }).catch(error => {
                         this.errors.push(error.response.data.error)
                     })

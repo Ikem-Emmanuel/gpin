@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <navbar :app="this" class="mb-2"></navbar>
+    <div>
+        <navbar :app="this" class="mb-5"></navbar>
         <spinner v-if="loading"></spinner>
         <div v-else-if="initiated">
             <router-view :app="this"/>
@@ -41,7 +41,3 @@
         }
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -82,7 +82,7 @@
                     }
                     this.app.req.post('auth/register', data).then(response => {
                         this.app.user = response.data;
-                        this.$router.push("/");
+                        this.$router.push("/dashboard");
                     }).catch(error => {
                         this.errors.push(error.response.data.error)
                     })

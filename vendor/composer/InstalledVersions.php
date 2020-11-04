@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'a0c9848ef516bd8cbcafd884b9b6de9a7ea3cf70',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -387,12 +387,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'a0c9848ef516bd8cbcafd884b9b6de9a7ea3cf70',
     ),
     'laravel/tinker' => 
     array (
@@ -411,6 +411,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '7ea4b47cb9e47117ea8557e1d463d25900a7df0b',
+    ),
+    'lcobucci/jwt' => 
+    array (
+      'pretty_version' => '3.3.3',
+      'version' => '3.3.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c1123697f6a2ec29162b82f170dd4a491f524773',
     ),
     'league/commonmark' => 
     array (
@@ -469,6 +478,15 @@ private static $installed = array (
       array (
         0 => '1.10.1',
       ),
+    ),
+    'namshi/jose' => 
+    array (
+      'pretty_version' => '7.2.3',
+      'version' => '7.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '89a24d7eb3040e285dd5925fcad992378b82bcff',
     ),
     'nesbot/carbon' => 
     array (
@@ -1012,6 +1030,15 @@ private static $installed = array (
       ),
       'reference' => '39d483bdf39be819deabf04ec872eb0b2410b531',
     ),
+    'symfony/polyfill-php56' => 
+    array (
+      'pretty_version' => 'v1.20.0',
+      'version' => '1.20.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '54b8cd7e6c1643d78d011f3be89f3ef1f9f4c675',
+    ),
     'symfony/polyfill-php72' => 
     array (
       'pretty_version' => 'v1.20.0',
@@ -1117,6 +1144,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'b43b05cf43c1b6d849478965062b6ef73e223bb5',
+    ),
+    'tymon/jwt-auth' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b927137cd5bd4d2f5d48a1ca71bc85006b99dbae',
     ),
     'vlucas/phpdotenv' => 
     array (

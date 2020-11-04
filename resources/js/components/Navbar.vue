@@ -12,12 +12,12 @@
                         <router-link exact to="/" class="nav-link">Home</router-link>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto mr-5">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black-50" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ app.user ? app.user.name : 'Account'}}
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu nmx-5" aria-labelledby="navbarDropdown">
                             <div v-if="!app.user">
                                 <router-link to="/login" class="dropdown-item">Login</router-link>
                                 <router-link to="/register" class="dropdown-item">Register</router-link>

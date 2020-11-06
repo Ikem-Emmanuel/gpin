@@ -1,18 +1,23 @@
-require('./bootstrap');
-import Vue from 'vue'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import VueRouter from "vue-router"
+import store from "./store";
+import axios from "axios";
 
-import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import routes from './router';
-const router = new VueRouter({
-    routes
+require("./store/subscriber");
+axios.defaults.baseURL = "http://localhost/gpin/public/";
+
+Vue.config.productionTip = false;
+Vue.component('spinner', require('vue-simple-spinner'));
+store.dispatch("auth/attempt", localStorage.getItem("token")).then(() => {
+    new Vue({
+        router,
+        store,
+        render: h => h(App)
+    }).$mount("#app");
 });
 
-Vue.component('spinner', require('vue-simple-spinner'));
-import App from './App.vue'
 
-new Vue({
-    router,
-    render: h => h(App)
-}).$mount("#app");

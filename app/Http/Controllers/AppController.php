@@ -13,8 +13,8 @@ use Symfony\Component\Console\Input\Input;
 class AppController extends Controller
 {
     public function init(){
-         $user = Auth::user();
-         return response()->json(['user'=>$user], 200);
+        $user = Auth::user();
+        return response()->json(['user'=>$user], 200);
     }
 
     public function __construct()
@@ -30,18 +30,14 @@ class AppController extends Controller
     public function login()
     {
         $credentials = request(['username', 'password']);
-        dd($credentials);
-//        if ($token = auth()->attempt($credentials)) {
-//            return response()->json(['success' => 'Login successful', $this->respondWithToken($token)], 200);
-//        }else{
-//                return response()->json(['error' => 'Could not log you in.'], 401);
-//        }
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Could not log you in.'], 401);
+        }
 
-//        return $this->respondWithToken($token);
+        return response()->json(compact('token'));
     }
 
     public function studentDetails(Request $request){
-//        dd('got here');
         $v = Validator::make($request->all(), [
             'examNo' => 'required|digits:10',
         ]);
@@ -56,7 +52,7 @@ class AppController extends Controller
         if ($search_text){
             $student = DB::table('students')->where('exam_no', $search_text)->first(['exam_no', 'surname', 'first_name', 'other_names', 'serial', 'pin']);
             if (is_null($student)){
-                return response()->json(['error' => 'Student data can not be found'], 401);
+                return response()->json(['error' => 'Student data can not be found'], 200);
             }else{
                 return response()->json($student, 200);
             }
@@ -70,10 +66,9 @@ class AppController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function me()
+    public function user()
     {
-        dd('me');
-//        return response()->json(auth()->user());
+        return response()->json(auth()->user());
     }
 
     /**

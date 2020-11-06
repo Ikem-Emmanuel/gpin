@@ -1,26 +1,46 @@
-import Home from './pages/Home'
+import Vue from "vue"
+import VueRouter from "vue-router"
 import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
 import Dashboard from "./pages/Dashboard";
-export default [
+import store from './store'
+
+Vue.use(VueRouter);
+
+const routes = [
     {
-        path: '/',
-        component: Home,
-        name: 'home',
+        path: "/",
+        name: "login",
+        component: Login
     },
     {
-        path: '/login',
-        component: Login,
-        name: 'login'
-    },
-    {
-        path: '/register',
-        component: Register,
-        name: 'register'
-    },
-    {
-        path: '/dashboard',
+        path: "/dashboard",
+        name: "dashboard",
         component: Dashboard,
-        name: 'dashboard'
+        beforeEnter: (to, from, next)=>{
+            if(!store.getters['auth/authenticated']){
+                return next({
+                    name:'login'
+                })
+            }
+            next()
+        }
     }
 ]
+
+const router = new VueRouter({
+    // mode: "history",
+    base: process.env.BASE_URL,
+    routes
+});
+
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(route => route.meta.requiresAuth)) {
+//     if (store.getters["auth/authenticated"]) {
+//       next();
+//     } else {
+//       next({ path: "/login" });
+//     }
+//   }
+//   next();
+// });
+export default router;

@@ -3,7 +3,7 @@
         <navbar :app="this" class="mb-5"></navbar>
         <spinner v-if="loading"></spinner>
         <div v-else-if="initiated">
-            <router-view :app="this"/>
+            <login/>
         </div>
     </div>
 </template>
@@ -11,7 +11,6 @@
 <script>
     import Navbar from './components/Navbar';
     import Login from "./pages/auth/Login";
-    import axios from 'axios'
     export default {
         name: "app",
         components: {
@@ -22,17 +21,21 @@
             return {
                 user: null,
                 loading: false,
-                initiated: false,
+                initiated: true,
+                req: axios.create({
+                    baseUrl: BASE_URL
+                })
             }
         },
-        mounted() {
-            this.init();
-        },
+        // mounted() {
+        //     this.init();
+        // },
         methods:{
             init()
             {
                 this.loading = true;
-                axios.get('/').then(() => {
+                this.req.post('api/login').then(response => {
+                    this.user = response.data.user;
                     this.loading = false;
                     this.initiated = true;
                 })

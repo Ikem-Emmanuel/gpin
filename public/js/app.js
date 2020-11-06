@@ -21266,7 +21266,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js");
 
-axios__WEBPACK_IMPORTED_MODULE_5___default.a.defaults.baseURL = "http://localhost/gpin/public/";
+axios__WEBPACK_IMPORTED_MODULE_5___default.a.defaults.baseURL = "https://check.civampems.com";
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('spinner', __webpack_require__(/*! vue-simple-spinner */ "./node_modules/vue-simple-spinner/dist/vue-simple-spinner.js"));
 _store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch("auth/attempt", localStorage.getItem("token")).then(function () {

@@ -1,16 +1,29 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import Dashboard from "./pages/Dashboard";
 import store from './store'
 
 Vue.use(VueRouter);
-
 const routes = [
     {
         path: "/",
         name: "login",
         component: Login
+    },
+    {
+        path: "/register",
+        name: "register",
+        component: Register,
+        beforeEnter: (to, from, next)=>{
+            if(!store.getters['auth/authenticated']){
+                return next({
+                    name:'login'
+                })
+            }
+            next()
+        }
     },
     {
         path: "/dashboard",

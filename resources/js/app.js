@@ -8,7 +8,7 @@ import axios from "axios";
 Vue.use(VueRouter);
 
 require("./store/subscriber");
-axios.defaults.baseURL = "https://check.civampems.com";
+axios.defaults.baseURL = "http://localhost/gpin/public/";
 
 Vue.config.productionTip = false;
 Vue.component('spinner', require('vue-simple-spinner'));

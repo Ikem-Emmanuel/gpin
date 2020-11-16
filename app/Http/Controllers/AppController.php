@@ -37,6 +37,22 @@ class AppController extends Controller
         return response()->json(compact('token'));
     }
 
+    public function register(Request $request){
+//        dd('got here');
+        $user = User::where('username', $request->username)->first();
+        if (isset($user->id)){
+            return response()->json(['error' => 'Username already exit'], 401);
+        }
+
+        $user = new User();
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return response()->json($user, 200);
+    }
+
     public function studentDetails(Request $request){
         $v = Validator::make($request->all(), [
             'examNo' => 'required|digits:10',

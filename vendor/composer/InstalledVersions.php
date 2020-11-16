@@ -19,11 +19,20 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'a0c9848ef516bd8cbcafd884b9b6de9a7ea3cf70',
+    'reference' => '2ceb7e48fed76755151c6ac47341e07e196a17fa',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'asm89/stack-cors' => 
+    array (
+      'pretty_version' => 'v2.0.2',
+      'version' => '2.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8d8f88b3b3830916be94292c1fbce84433efb1aa',
+    ),
     'cordoval/hamcrest-php' => 
     array (
       'replaced' => 
@@ -145,6 +154,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '307fb34a5ab697461ec4c9db865b20ff2fd40771',
+    ),
+    'fruitcake/laravel-cors' => 
+    array (
+      'pretty_version' => 'v2.0.3',
+      'version' => '2.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '01de0fe5f71c70d1930ee9a80385f9cc28e0f63a',
     ),
     'hamcrest/hamcrest-php' => 
     array (
@@ -392,7 +410,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'a0c9848ef516bd8cbcafd884b9b6de9a7ea3cf70',
+      'reference' => '2ceb7e48fed76755151c6ac47341e07e196a17fa',
     ),
     'laravel/tinker' => 
     array (

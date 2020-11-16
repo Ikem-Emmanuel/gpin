@@ -46,6 +46,10 @@ export default {
             return dispatch("attempt", response.data.token);
         },
 
+        Register({ commit }, credentials) {
+            return axios.post("api/auth/register", credentials);
+        },
+
         /**
          * Here we check if the token is valid then we SET_TOKEN == token,
          * Also send a request to the api(auth/me) with the authosization token

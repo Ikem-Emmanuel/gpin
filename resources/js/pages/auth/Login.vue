@@ -71,7 +71,7 @@
                         })
                         .catch(error => {
                             this.errors.push(error.response.data.error)
-                            console.log("Your are fake");
+                            // console.log("Your are fake");
                         });
                 }
             }

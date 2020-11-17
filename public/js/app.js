@@ -2009,6 +2009,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2026,6 +2028,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])({
     logOutAction: "auth/logOut"
   })), {}, {
+    dashboard: function dashboard() {
+      this.$router.push({
+        name: "dashboard"
+      });
+    },
     logOut: function logOut() {
       var _this = this;
 
@@ -3691,10 +3698,24 @@ var render = function() {
       "nav",
       { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary" },
       [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-          _c("img", { attrs: { src: _vm.image, alt: "Waec" } }),
-          _vm._v(" CIVAMPEMS CHECKERS")
-        ]),
+        _c(
+          "div",
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "navbar-brand",
+                attrs: { to: { path: "dashboard" } },
+                on: { click: _vm.dashboard }
+              },
+              [
+                _c("img", { attrs: { src: _vm.image, alt: "Waec" } }),
+                _vm._v(" CIVAMPEMS CHECKERS")
+              ]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
         _vm._m(0),
         _vm._v(" "),
@@ -21634,7 +21655,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js");
 
-axios__WEBPACK_IMPORTED_MODULE_5___default.a.defaults.baseURL = "https://check.civampems.com";
+axios__WEBPACK_IMPORTED_MODULE_5___default.a.defaults.baseURL = "http://localhost/gpin/public/";
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('spinner', __webpack_require__(/*! vue-simple-spinner */ "./node_modules/vue-simple-spinner/dist/vue-simple-spinner.js"));
 _store__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch("auth/attempt", localStorage.getItem("token")).then(function () {
@@ -21964,6 +21985,12 @@ var routes = [{
   name: "login",
   component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
+  path: "/login",
+  redirect: '/dashboard'
+}, {
+  path: "/home",
+  redirect: '/'
+}, {
   path: "/register",
   name: "register",
   component: _pages_auth_Register__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -21972,9 +21999,7 @@ var routes = [{
       return next({
         name: 'login'
       });
-    }
-
-    next();
+    } else next();
   }
 }, {
   path: "/dashboard",
@@ -21985,9 +22010,7 @@ var routes = [{
       return next({
         name: 'login'
       });
-    }
-
-    next();
+    } else next();
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({

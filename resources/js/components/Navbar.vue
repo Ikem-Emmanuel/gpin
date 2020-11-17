@@ -2,7 +2,9 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-            <a class="navbar-brand" href="#"> <img :src="image" alt="Waec"/> CIVAMPEMS CHECKERS</a>
+            <div>
+                <router-link class="navbar-brand" :to="{ path: 'dashboard' }" @click="dashboard"> <img :src="image" alt="Waec"/> CIVAMPEMS CHECKERS</router-link>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,6 +45,11 @@
             ...mapActions({
                 logOutAction: "auth/logOut"
             }),
+            dashboard(){
+                this.$router.push({
+                    name: "dashboard"
+                })
+            },
             logOut() {
                 this.logOutAction().then(() => {
                     this.$router.push({

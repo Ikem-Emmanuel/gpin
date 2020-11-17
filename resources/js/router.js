@@ -13,6 +13,14 @@ const routes = [
         component: Login
     },
     {
+        path: "/login",
+        redirect: '/dashboard',
+    },
+    {
+        path: "/home",
+        redirect: '/'
+    },
+    {
         path: "/register",
         name: "register",
         component: Register,
@@ -22,7 +30,7 @@ const routes = [
                     name:'login'
                 })
             }
-            next()
+            else next()
         }
     },
     {
@@ -35,7 +43,7 @@ const routes = [
                     name:'login'
                 })
             }
-            next()
+            else next()
         }
     }
 ]
